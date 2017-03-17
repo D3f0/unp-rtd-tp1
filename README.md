@@ -5,4 +5,4 @@ Dockerfile para generar la imagen para la práctica 1 de Redes y Transmisión de
 ## Práctica
 
 Para acceder a la práctica, utilizar el aula virtual:
-http://www.dit.ing.edu.ar/moodle
+http://www.dit.ing.unp.edu.ar/moodle
