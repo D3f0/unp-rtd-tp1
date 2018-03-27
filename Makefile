@@ -21,29 +21,26 @@ help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 build:  ## Construir el contenedor
-	docker build -t $(IMAGE_NAME) .
+	docker-compose build
 
 run:    ## Ejecutar el contenedor
-	docker run --name $(CONTAINER_NAME) --rm -p 80:80 $(IMAGE_NAME)
+	docker-compose start
 
 stop:   ## Detener el contenedor
-	docker stop $(CONTAINER_NAME)
+	docker-compose stop
 
 re:     ## Recrear el contenedor y relanzarlo
-	$(MAKE) stop || true
-	$(MAKE) build run
+	docker-compose down
+	$(MAKE) up
 
-shell:
-	docker exec -ti -e TERM=xterm $(CONTAINER_NAME) bash
+shell_http:
+	docker-compose exec -ti -e TERM=xterm http bash
 
+shell_mail:
+	docker-compose exec -ti -e TERM=xterm mail bash
 
 
 
 deploy:
 	eval $$(docker-machine env $(ENV)) && \
-		docker stop $(CONTAINER_NAME) || true
-	eval $$(docker-machine env $(ENV)) && \
-		docker rm $(CONTAINER_NAME) || true
-	eval $$(docker-machine env $(ENV)) && \
-		docker build -t $(IMAGE_NAME) . && \
-		docker run --restart=unless-stopped --name=$(IMAGE_NAME) -d -p 80:80 $(IMAGE_NAME)
+		$(MAKE) up
