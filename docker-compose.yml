@@ -1,0 +1,14 @@
+version: '3'
+services:
+  http:
+    build: ./http
+    ports:
+      - 80:80
+    restart: unless-stopped
+  mail:
+    build: ./mail
+    ports:
+      - 2500:2500
+      - 1100:1100
+    restart: unless-stopped
+      
