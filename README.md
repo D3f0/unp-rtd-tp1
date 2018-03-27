@@ -5,6 +5,14 @@ Para acceder a la práctica, utilizar el aula virtual: http://www.dit.ing.edu.ar
 Dockerfiles para generar la imágenes para la práctica 1 de Redes y Transmisión de Datos.
 
 
+## Utilización
+
+Para lanzar todos los servicios (80, 1100, 2500).
+
+```
+docker-compose up --build -d
+```
+
 ## `http` Servidor web 
 
 Servior web para realizar las capturas con [Wireshark](https://www.wireshark.org/).
