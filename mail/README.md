@@ -1,17 +1,8 @@
-# Redes y Transmisión de Datos - Soporte TP1
+# Servidor de mail de pruba para Redes y Transmición de Datos UNPSJB
 
-Para acceder a la práctica, utilizar el aula virtual: http://www.dit.ing.edu.ar/moodle
+Como parte del trabajo práctico 1 del materia se hacen pruebas con telnet para enviar y recibir mails.
 
-Dockerfiles para generar la imágenes para la práctica 1 de Redes y Transmisión de Datos.
-
-
-## `http` Servidor web 
-
-Servior web para realizar las capturas con [Wireshark](https://www.wireshark.org/).
-
-## `mail` Servidor de mail de pruba
-
-Preparado para las pruebas con `telnet` de envío y recepción de mails.
+Para iniciar el servidor utilizar el Makefile. Revisar con make help, es necesario instalar docker.
 
 El contenedor tiene 2 servicios:
 
